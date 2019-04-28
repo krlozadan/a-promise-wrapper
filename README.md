@@ -10,12 +10,14 @@ As a tip: You could use [object destructuring](https://developer.mozilla.org/en-
 - [Installation and usage](#installation-and-usage)
 - [Examples](#examples)
 
+## Problem description
+
 Normally you would write code similar to this using the **async/await** keywords
 
 ```javascript
 async function singleAsyncFunctionCall() {
     try {
-        const response = await axios.get("https://reqres.in/api/users/");
+        const response = await request.get("https://reqres.in/api/users/");
         // Do something
     } catch (e) {
         // React to the error
@@ -28,20 +30,20 @@ If the function required to perform multiple async functions. Not that this woul
 ```javascript
 async function multipleAsyncFunctionCalls() {
     try {
-        const response1 = await axios.get("https://reqres.in/api/users/1");
+        const response = await request.get("https://reqres.in/api/users/");
         // Do something
-        const response2 = await crypto.hash("password", 10);;
+        const hashedPassword = await crypto.hash("password", 10);
         // Do something else
-        const { data } = await db.save({ any : object });
+        const dbResponse = await db.save({ any : object });
         // Do something else
     } catch (e) {
-        // Maybe you will need t check the type of errors here like this:
+        // You might need to check error properties to know what happened
         if (e.hasOwnProperty("response") && e.hasOwnProperty("data")) {
-            // Catch the request error
+            // Catch request error
         } else if (e.message.includes("hash")) {
-            // Catch a hashing error
+            // Catch hashing error
         } else if (e.hasOwnProperty("type") && e.type == "DB Error") {
-            // Catch a database error
+            // Catch database error
         } else {
             // Uknown error
         }
@@ -54,37 +56,40 @@ Or like this:
 ```javascript
 async function multipleAsyncFunctionCalls() {  
     try {
-        const response = await axios.get("https://reqres.in/api/usersa/1");
+        const response = await request.get("https://reqres.in/api/users/");
         // Do something
     } catch (e) {
         // Catch the request error
     }
     
     try {
-        const hashResult = await crypto.hash("password", 10);;
-        // Do something else
+        const hashedPassword = await crypto.hash("password", 10);
+        // Do something
     } catch (e) {
-        // Catch a database error
+        // Catch hashing error
     }
     
     try {
         const dbReponse = await db.save({ any : object });
-        // Do something else
+        // Do something
     } catch (e) {
-        // Catch a database error
+        // Catch database error
     }
 }
 ```
+## Installation and usage
 
-## Solution / Examples
 
-The async wrapper can help you clean up and reduce some of that code to improve readability
+
+## Examples
+
+The **Async Wrapper** can help you clean up and reduce some of that code to improve readability. 
 
 ```javascript
 const asyncWrapper = require("async-wrapper");
 
 async function singleAsyncFunctionCall() {
-    const { data , error } = await asyncWrapper.wrap(axios.get("https://reqres.in/api/users/"));
+    const { data , error } = await asyncWrapper.wrap(request.get("https://reqres.in/api/users/"));
     if (error) {
         // Handle the error
     }
@@ -123,11 +128,11 @@ async function singleAsyncFunctionCall() {
 }
 ```
 
-It really shines with multiple async calls. Your code is way more readable and organized
+It really shines with multiple async calls. Your code is way more readable
 
 ```javascript
 async function multipleAsyncFunctionCalls() {  
-    const { data : userResponse, error : errorFetchingUser } = await asyncWrapper.wrap(axios.get("https://reqres.in/api/usersa/1"));
+    const { data : userResponse, error : errorFetchingUser } = await asyncWrapper.wrap(request.get("https://reqres.in/api/users"));
     if (errorFetchingUser) {
         // Do something
     }
