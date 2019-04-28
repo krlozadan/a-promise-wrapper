@@ -79,11 +79,21 @@ async function multipleAsyncFunctionCalls() {
 ```
 ## Installation and usage
 
+Install with npm
 
+```shell
+npm install async-wrapper --save
+```
+Require it where you need to use it
 
-## Examples
-
+```javascript
+const asyncWrapper = require("async-wrapper");
+```
 The **Async Wrapper** can help you clean up and reduce some of that code to improve readability. 
+
+Call the ***wrap*** function passing in a function that returns a Promise. 
+
+The Async Wrapper must be used **inside a function that uses the async / await** keywords
 
 ```javascript
 const asyncWrapper = require("async-wrapper");
@@ -96,6 +106,26 @@ async function singleAsyncFunctionCall() {
     // Do something
 }
 ```
+
+The return value if resolved will be:
+
+```javascript
+{
+    data,  // This holds the resolved value of the original promise
+    error : null
+}
+```
+
+The return value if rejected will be:
+
+```javascript
+{
+    data : null,  
+    error // This holds the rejected value of the original promise
+}
+```
+
+## Examples
 
 If you don't need one of the two objects you can just not use them
 
