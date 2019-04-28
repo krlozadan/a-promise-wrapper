@@ -1,0 +1,31 @@
+{
+  "name": "async-wrapper",
+  "version": "1.0.0",
+  "description": "Utility object which  helps you avoid try and catch blocks inside async functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krlozadan/async-wrapper.git"
+  },
+  "keywords": [
+    "async",
+    "promise",
+    "try",
+    "catch",
+    "wrapper",
+    "utility",
+    "util",
+    "wrap",
+    "await",
+    "asynchronous"
+  ],
+  "author": "Carlos Adan Cortes (https://www.carlosadan.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krlozadan/async-wrapper/issues"
+  },
+  "homepage": "https://github.com/krlozadan/async-wrapper#readme"
+}
