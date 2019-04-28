@@ -4,7 +4,11 @@ This utility object helps you avoid the try and catch blocks inside async functi
 
 As a tip: You could use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to get a well named rejection / resolved data back.
 
-## Problem Description
+### Index
+
+- [Problem description](#problem-description)
+- [Installation and usage](#installation-and-usage)
+- [Examples](#examples)
 
 Normally you would write code similar to this using the **async/await** keywords
 
