@@ -1,5 +1,5 @@
 {
-  "name": "async-wrapper",
+  "name": "a-promise-wrapper",
   "version": "1.0.0",
   "description": "Utility object which  helps you avoid try and catch blocks inside async functions",
   "main": "build/index.js",
@@ -8,12 +8,12 @@
     "build": "babel src -d build",
     "test": "jest",
     "test:watch": "jest --watch --verbose",
-    "pack" : "npm pack --dry-run",
+    "pack": "npm pack --dry-run",
     "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krlozadan/async-wrapper.git"
+    "url": "git+https://github.com/krlozadan/a-promise-wrapper.git"
   },
   "keywords": [
     "async",
@@ -30,9 +30,9 @@
   "author": "Carlos Adan Cortes (https://www.carlosadan.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/krlozadan/async-wrapper/issues"
+    "url": "https://github.com/krlozadan/a-promise-wrapper/issues"
   },
-  "homepage": "https://github.com/krlozadan/async-wrapper#readme",
+  "homepage": "https://github.com/krlozadan/a-promise-wrapper#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
