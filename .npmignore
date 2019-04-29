@@ -1,0 +1,11 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Compiled 
+__test__
+src
+
+# config
+.babelrc
