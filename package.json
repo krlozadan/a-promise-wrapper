@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "watch \"npm run build\" src",
     "build": "babel src -d build",
-    "test": "jest src/test",
-    "test:watch": "jest src/test --watch --verbose"
+    "test": "jest",
+    "test:watch": "jest --watch --verbose",
   },
   "repository": {
     "type": "git",
