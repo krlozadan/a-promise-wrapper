@@ -1,4 +1,4 @@
-import asyncWrapper from "../index";
+import asyncWrapper from "../src/index";
 
 test("Resolves with a error as null and data as object", async function() {
     const { data, error } = await asyncWrapper(Promise.resolve({}));
