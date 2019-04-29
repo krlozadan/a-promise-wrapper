@@ -1,0 +1,29 @@
+
+# Created by https://www.gitignore.io/api/node,macos,windows
+# Edit at https://www.gitignore.io/?templates=node,macos,windows
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Compiled 
+build/
+
+# Dependency directories
+node_modules/
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# End of https://www.gitignore.io/api/node,macos,windows
