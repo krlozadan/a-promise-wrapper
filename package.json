@@ -8,6 +8,8 @@
     "build": "babel src -d build",
     "test": "jest",
     "test:watch": "jest --watch --verbose",
+    "pack" : "npm pack --dry-run",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
