@@ -82,7 +82,7 @@ async function multipleAsyncFunctionCalls() {
 Install with npm
 
 ```shell
-npm install async-wrapper --save
+$ npm install async-wrapper --save
 ```
 Require it where you need to use it
 
@@ -91,7 +91,7 @@ const asyncWrapper = require("async-wrapper");
 ```
 The **Async Wrapper** can help you clean up and reduce some of that code to improve readability. 
 
-Call the ***wrap*** function passing in a function that returns a Promise. 
+Call the function passing in a function that returns a Promise. 
 
 The Async Wrapper must be used **inside a function that uses the async / await** keywords
 
@@ -99,7 +99,7 @@ The Async Wrapper must be used **inside a function that uses the async / await**
 const asyncWrapper = require("async-wrapper");
 
 async function singleAsyncFunctionCall() {
-    const { data , error } = await asyncWrapper.wrap(request.get("https://reqres.in/api/users/"));
+    const { data , error } = await asyncWrapper(request.get("https://reqres.in/api/users/"));
     if (error) {
         // Handle the error
     }
@@ -132,13 +132,13 @@ If you don't need one of the two objects you can just not use them
 ```javascript
 async function singleAsyncFunctionCall() {
     // The error will be silenced
-    const { data } = await asyncWrapper.wrap(axios.get("https://reqres.in/api/users/"));
+    const { data } = await asyncWrapper(axios.get("https://reqres.in/api/users/"));
     // Do something
 }
 
 // If you just care about the promise being rejected
 async function singleAsyncFunctionCall() {
-    const { error } = await asyncWrapper.wrap(axios.get("https://reqres.in/api/users/"));
+    const { error } = await asyncWrapper(axios.get("https://reqres.in/api/users/"));
     if (error) {
         // Handle the error
     }
@@ -149,7 +149,7 @@ You can use object destructuring to assign better names
 
 ```javascript
 async function singleAsyncFunctionCall() {
-    const { data : { data : userInfo } , error : errorFetghingUser } = await asyncWrapper.wrap(axios.get("https://reqres.in/api/users/"));
+    const { data : { data : userInfo } , error : errorFetghingUser } = await asyncWrapper(axios.get("https://reqres.in/api/users/"));
     if (errorFetghingUser) {
         // Handle the error
     }
@@ -162,15 +162,15 @@ It really shines with multiple async calls. Your code is way more readable
 
 ```javascript
 async function multipleAsyncFunctionCalls() {  
-    const { data : userResponse, error : errorFetchingUser } = await asyncWrapper.wrap(request.get("https://reqres.in/api/users"));
+    const { data : userResponse, error : errorFetchingUser } = await asyncWrapper(request.get("https://reqres.in/api/users"));
     if (errorFetchingUser) {
         // Do something
     }
-    const { data : hashedPassword, error : errorHashingPassword } = await asyncWrapper.wrap(crypto.hash("password", 10));
+    const { data : hashedPassword, error : errorHashingPassword } = await asyncWrapper(crypto.hash("password", 10));
     if (errorHashingPassword) {
         // Do something
     }
-    const { data : newObject, error : errorSavingObject } = await asyncWrapper.wrap(db.save({ any : object }));
+    const { data : newObject, error : errorSavingObject } = await asyncWrapper(db.save({ any : object }));
     if (errorSavingObject) {
         // Do something
     }
