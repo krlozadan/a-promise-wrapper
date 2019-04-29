@@ -2,9 +2,11 @@
   "name": "async-wrapper",
   "version": "1.0.0",
   "description": "Utility object which  helps you avoid try and catch blocks inside async functions",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "watch \"npm run build\" src",
+    "build": "babel src -d build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,13 @@
   "bugs": {
     "url": "https://github.com/krlozadan/async-wrapper/issues"
   },
-  "homepage": "https://github.com/krlozadan/async-wrapper#readme"
+  "homepage": "https://github.com/krlozadan/async-wrapper#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "jest": "^24.7.1",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {}
 }
