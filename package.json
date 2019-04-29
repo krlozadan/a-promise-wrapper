@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "watch \"npm run build\" src",
     "build": "babel src -d build",
-    "test": "jest"
+    "test": "jest src/test",
+    "test:watch": "jest src/test --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,11 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "watch": "^1.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
+  }
 }
