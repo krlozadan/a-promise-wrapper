@@ -9,6 +9,7 @@ As a tip: You could use [object destructuring](https://developer.mozilla.org/en-
 - [Problem description](#problem-description)
 - [Installation and usage](#installation-and-usage)
 - [Examples](#examples)
+- [Multiple Promises](#multiple-promises)
 
 ## Problem description
 
@@ -174,5 +175,25 @@ async function multipleAsyncFunctionCalls() {
     if (errorSavingObject) {
         // Do something
     }
+}
+```
+
+## Multiple Promises
+
+If you need to execute multiple promises in parallel you can use **Promise.all** or you can pass an array of promises to the wrapper
+
+```javascript
+async function parallelAsyncFunctionCalls() {  
+    const { data, error } = await promiseWrapper(Promise.all([
+        request.get("https://reqres.in/api/users/1"),
+        request.get("https://reqres.in/api/users/2"),
+    ]));
+    const [response1, response2] = data;
+    // This would also work and will give you the same result
+    const { data, error } = await promiseWrapper([
+        request.get("https://reqres.in/api/users/1"),
+        request.get("https://reqres.in/api/users/2"),
+    ]);
+    const [response1, response2] = data;
 }
 ```
