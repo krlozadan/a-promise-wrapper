@@ -1,5 +1,8 @@
 # A Promise Wrapper
 
+[![NPM](https://nodei.co/npm/a-promise-wrapper.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/a-promise-wrapper/)
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 This utility object helps you avoid the try and catch blocks inside async functions. With no dependencies
 
 As a tip: You could use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to get a well named rejection / resolved data back.
@@ -89,6 +92,8 @@ Require it where you need to use it
 
 ```javascript
 const promiseWrapper = require("a-promise-wrapper");
+// Or
+import promiseWrapper from 'a-promise-wrapper';
 ```
 The Promise Wrapper can help you clean up and reduce some of that code to improve readability. 
 

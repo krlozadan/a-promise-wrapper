@@ -1,12 +1,12 @@
 {
   "name": "a-promise-wrapper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Utility object which  helps you avoid try and catch blocks inside async functions",
   "main": "build/index.js",
   "scripts": {
     "dev": "watch \"npm run build\" src",
     "build": "babel src -d build",
-    "test": "jest",
+    "test": "standard --fix && jest",
     "test:watch": "jest --watch --verbose",
     "pack": "npm pack --dry-run",
     "prepare": "npm run build"
@@ -28,20 +28,21 @@
     "asynchronous"
   ],
   "author": "Carlos Adan Cortes (https://www.carlosadan.com)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/krlozadan/a-promise-wrapper/issues"
   },
   "homepage": "https://github.com/krlozadan/a-promise-wrapper#readme",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "babel-jest": "^24.7.1",
-    "jest": "^24.7.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-jest": "^25.3.0",
+    "jest": "^25.3.0",
+    "standard": "^14.3.3",
     "watch": "^1.0.2"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
+    "@babel/polyfill": "^7.8.7"
   }
 }
