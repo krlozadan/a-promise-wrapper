@@ -1,5 +1,8 @@
 # A Promise Wrapper
 
+[![NPM](https://nodei.co/npm/a-promise-wrapper.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/a-promise-wrapper/)
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 This utility object helps you avoid the try and catch blocks inside async functions. With no dependencies
 
 As a tip: You could use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to get a well named rejection / resolved data back.
@@ -9,6 +12,7 @@ As a tip: You could use [object destructuring](https://developer.mozilla.org/en-
 - [Problem description](#problem-description)
 - [Installation and usage](#installation-and-usage)
 - [Examples](#examples)
+- [Multiple Promises](#multiple-promises)
 
 ## Problem description
 
@@ -88,6 +92,8 @@ Require it where you need to use it
 
 ```javascript
 const promiseWrapper = require("a-promise-wrapper");
+// Or
+import promiseWrapper from 'a-promise-wrapper';
 ```
 The Promise Wrapper can help you clean up and reduce some of that code to improve readability. 
 
@@ -174,5 +180,25 @@ async function multipleAsyncFunctionCalls() {
     if (errorSavingObject) {
         // Do something
     }
+}
+```
+
+## Multiple Promises
+
+If you need to execute multiple promises in parallel you can use **Promise.all** or you can pass an array of promises to the wrapper
+
+```javascript
+async function parallelAsyncFunctionCalls() {  
+    const { data, error } = await promiseWrapper(Promise.all([
+        request.get("https://reqres.in/api/users/1"),
+        request.get("https://reqres.in/api/users/2"),
+    ]));
+    const [response1, response2] = data;
+    // This would also work and will give you the same result
+    const { data, error } = await promiseWrapper([
+        request.get("https://reqres.in/api/users/1"),
+        request.get("https://reqres.in/api/users/2"),
+    ]);
+    const [response1, response2] = data;
 }
 ```
