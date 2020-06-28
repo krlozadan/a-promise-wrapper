@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import asyncWrapper from '../src/index'
+import asyncWrapper from '../build/index'
 
 test('Resolves with a error as null and data as object', async function () {
   const { data, error } = await asyncWrapper(Promise.resolve({}))
