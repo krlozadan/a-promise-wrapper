@@ -20,3 +20,9 @@ test('Resolve with an array of promises', async function () {
   expect(data).toHaveLength(3)
   expect(data).toEqual(expect.arrayContaining([1, 2, 3]))
 })
+
+test('Rejects with an array of promises', async function () {
+  const { data, error } = await asyncWrapper([Promise.resolve(1), Promise.reject(Error()), Promise.resolve(3)])
+  expect(error).toBeTruthy()
+  expect(data).toBeNull()
+})
